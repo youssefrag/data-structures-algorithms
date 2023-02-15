@@ -19,7 +19,6 @@ const everyone = [
 
 const findNemo = (array) => {
   for (let i = 0; i < array.length; i++) {
-    console.log("running");
     if (array[i] === "nemo") {
       console.log("WE FOUND NEMO");
       break;
@@ -27,17 +26,37 @@ const findNemo = (array) => {
   }
 };
 
-findNemo(everyone); // O(n) --> Linear Time
+const findNemo2 = (array) => {
+  array.forEach((fish) => {
+    console.log("running");
+    if (fish === "nemo") {
+      console.log("WE FOUND NEMO");
+      return;
+    }
+  });
+};
 
-// const compressFirstBox = (boxes) => {
-//   console.log(boxes[0]);
-// }; // O(1) --> Constant Time
+const findNemo3 = (array) => {
+  for (let fish of array) {
+    console.log("running");
+    if (fish === "nemo") {
+      console.log("WE FOUND NEMO");
+      break;
+    }
+  }
+};
 
-// const boxes = [0, 1, 2, 3, 4, 5];
+findNemo3(everyone); // O(n) --> Linear Time
 
-// const logFirstTwoBoxes = (boxes) => {
-//   console.log(boxes[0]); // O(1)
-//   console.log(boxes[1]); // O(1)
-// };
+const compressFirstBox = (boxes) => {
+  console.log(boxes[0]);
+}; // O(1) --> Constant Time
+
+const boxes = [0, 1, 2, 3, 4, 5];
+
+const logFirstTwoBoxes = (boxes) => {
+  console.log(boxes[0]); // O(1)
+  console.log(boxes[1]); // O(1)
+};
 
 // logFirstTwoBoxes(boxes); // O(2)
