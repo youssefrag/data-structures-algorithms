@@ -1,17 +1,26 @@
-const findNumsSum = (array, sum) => {
-  let a = null;
-  let b = null;
-  for (num1 of array) {
-    for (num2 of array) {
-      //   console.log(num1, num2);
-      if (num1 + num2 === sum) {
-        a = num1;
-        b = num2;
-      }
+// Naive
+function hasPairWithSum(arr, sum) {
+  var len = arr.length;
+  for (var i = 0; i < len - 1; i++) {
+    for (var j = i + 1; j < len; j++) {
+      if (arr[i] + arr[j] === sum) return true;
     }
   }
-  console.log("a:", a, "b:", b);
-};
 
-// findNumsSum([1, 2, 3, 9], 8);
-findNumsSum([1, 2, 28, 1], 29);
+  return false;
+}
+
+// Better
+function hasPairWithSum2(arr, sum) {
+  const mySet = new Set();
+  const len = arr.length;
+  for (let i = 0; i < len; i++) {
+    if (mySet.has(arr[i])) {
+      return true;
+    }
+    mySet.add(sum - arr[i]);
+  }
+  return false;
+}
+
+hasPairWithSum2([6, 4, 3, 2, 1, 7], 9);
