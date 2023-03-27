@@ -60,3 +60,4 @@ const logFirstTwoBoxes = (boxes) => {
 };
 
 // logFirstTwoBoxes(boxes); // O(2)
+//
